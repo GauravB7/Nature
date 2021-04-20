@@ -1,0 +1,14 @@
+<div class="productsAvailable">
+  <h2>Products Available</h2>
+</div>
+<div class="bonsai">
+  <div class="fruitbonsai" *ngFor="let product of products">
+    <a class="bonsaiBox" routerLink="/productDetail/{{product.id}}"><img src="{{product.images[0]}}"
+        alt="{{product.productName}}">
+      <div class="box">
+        <h3>{{product.productName}}</h3>
+      </div>
+    </a>
+
+  </div>
+</div>

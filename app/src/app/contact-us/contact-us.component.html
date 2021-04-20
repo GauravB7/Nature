@@ -1,0 +1,46 @@
+<div class="contactUsBlock">
+  <h3>CONTACT US</h3>
+  <div class="contactUsForm">
+    <form name="contactForm" [formGroup]='contactForm'>
+      <h2>Contact</h2>
+      <div class="form-group">
+        <p>
+          <label for="cust_name">Name :</label>
+          <input type="text" id="customerName" required="" formControlName="userName"></p>
+        <div *ngIf="contactForm.controls['userName'].invalid && contactForm.controls['userName'].touched" class="alert">
+          <div *ngIf="contactForm.controls['userName'].errors.required">Name is required</div>
+          <div *ngIf="contactForm.controls['userName'].errors.pattern">enter valid username </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <p>
+          <label for="cust_name">Email : </label>
+          <input type="text" id="customerMail" required="" formControlName="userEmail"></p>
+        <div *ngIf="contactForm.controls['userEmail'].invalid && contactForm.controls['userEmail'].touched"
+          class="alert">
+          <div *ngIf="contactForm.controls['userEmail'].errors.required">Enter your email
+          </div>
+          <div *ngIf="contactForm.controls['userEmail'].errors.pattern">enter valid email </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <p>
+          <label for="cust_name">Phone:</label>
+          <input type="text" id="customerNumber"></p>
+      </div>
+
+      <div class="form-group">
+        <p>
+          <label for="cust_message" class="query">Query:</label><br />
+          <textarea rows="4" id="customerNote" name="customerNote" formControlName="comment" required></textarea></p>
+        <div *ngIf="contactForm.controls['comment'].invalid && contactForm.controls['comment'].touched" class="alert">
+          <div *ngIf="contactForm.controls['comment'].errors.required">Add your queries
+          </div>
+        </div>
+      </div>
+      <a class="formSubmit" href="#"> <input type="submit" [disabled]="contactForm.invalid" id="submit"
+          value="Submit" (click)="onSubmit()" /></a>
+
+    </form>
+  </div>

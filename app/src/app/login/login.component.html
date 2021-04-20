@@ -1,0 +1,37 @@
+<div class="loginBlock">
+  <h3>AUTHENTICATION</h3>
+  <div class="createAccount">
+    <form>
+      <h2>Add Account</h2>
+      <p><label for="name">Name : </label>
+        <span id="nameBox"><input type="text" name="name" id="userName" required="required"></span>
+        <span id="nameError"></span></p>
+      <p><label for="email">Email : </label>
+        <input type="email" name="email" id="userEmail" required="required">
+        <span id="emailError"></span>
+      </p>
+      <p><label for="password">Password : </label>
+        <input type="password" name="password" id="userPassword" required="required">
+        <span id="passwordError"></span>
+      </p>
+      <p><a><input type="submit" value="Create Account" (click)="signUp()"></a></p>
+      <p><span id="signUpSuccess"></span>
+        <span id="signUpFail"></span></p>
+    </form>
+  </div>
+  <div class="alreadyUser">
+    <form>
+      <h2>Already a User??</h2>
+      <p><label for="email">Email : </label>
+        <input type="email" name="email" required="required" id="email">
+        <span id="loginEmailError"></span>
+      </p>
+      <p><label for="password">Password : </label>
+        <input type="password" name="password" required="required" id="password">
+        <span id="loginPasswordError"></span>
+      </p>
+      <p><a><input type="submit" value="Login" (click)="login()"></a>
+      </p>
+    </form>
+  </div>
+</div>

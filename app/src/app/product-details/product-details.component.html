@@ -1,0 +1,19 @@
+<div class="appleBonsai" *ngIf="product">
+  <div class="Description">
+    <h2>{{product.productName}}</h2>
+  </div>
+  <div class="appleImage">
+    <span *ngFor="let image of product.images">
+      <img class="apple1" src="{{image}}" alt="{{product.productName}}">
+    </span>
+  </div>
+  <div class="Description">
+    <p>{{product.description}}<br />
+      <b>Position :</b>{{position}}
+      <div class="select">
+        <h3>$24.55</h3>
+        <input type="submit" value="Buy Product" (click)="buyProduct(product)">
+        <a routerLink="/products"><input type="submit" value="Back"></a>
+      </div>
+  </div>
+</div>

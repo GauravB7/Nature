@@ -1,0 +1,12 @@
+<div class="header">
+  <img src="assets/Logo/logoTreeBig.jpg" alt="Tree logo">
+  <h2>Nature's Paradise<br />
+    <span>Make your Home a Greener Place !!</span></h2>
+  <div *ngIf="loggedIn==undefined">
+    <p><a routerLink="login">Login</a></p>
+  </div>
+  <div *ngIf="loggedIn">
+    <p><a routerLink="home" (click)="logout()">Logout</a></p>
+  </div>
+
+</div>

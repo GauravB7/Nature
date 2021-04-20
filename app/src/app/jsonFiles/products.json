@@ -1,0 +1,24 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "category_id": "1",
+      "product_name": "Apple Bonsai",
+	  "displayImage":"assets/Bonsai/Apple.jpg",
+	  "insideImages":["assets/Bonsai/AppleBonsai1.jpg","assets/Bonsai/AppleBonsai2.jpg"],
+      "description": "The tree is indigenous to the American tropics. It has a dense form, with plenty of deep-green leaves. Lemon yellow and white blooms adorn the tree over the summer months. These give way to green fruits and yellow when ripe. The aerial roots of the tree are particularly bonsai-friendly.",
+      "position": "Situate the tree in a sunny location indoors. The mango bonsai can be grown outdoors in full sun or semi-shade in USDA zones 11 and 12, but roots must be mulched heavily to protect the tree from cold temperatures.",
+      "price": "$19.85"
+    },
+	{
+      "id": "2",
+      "category_id": "1",
+      "product_name": "Mango Bonsai",
+	  "displayImage":"assets/Bonsai/Mango.jpg",
+	  "insideImages":["assets/Bonsai/MangoBonsai1.jpg","assets/Bonsai/mangoBonsai2.jpg"],
+      "description": "The tree is indigenous to the American tropics. It has a dense form, with plenty of deep-green leaves. Lemon yellow and white blooms adorn the tree over the summer months. These give way to green fruits and yellow when ripe. The aerial roots of the tree are particularly bonsai-friendly.",
+      "position": "Situate the tree in a sunny location indoors. The mango bonsai can be grown outdoors in full sun or semi-shade in USDA zones 11 and 12, but roots must be mulched heavily to protect the tree from cold temperatures.",
+      "price": "$19.85"
+    }
+  ]
+}
