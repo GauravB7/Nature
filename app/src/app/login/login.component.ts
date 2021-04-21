@@ -1,3 +1,4 @@
+//Import required modules
 import {
   Component,
   OnInit
@@ -22,6 +23,7 @@ import {
 })
 export class LoginComponent implements OnInit {
 
+  //Create a user with default values
   user ? : User = {
     name: '',
     email: '',
@@ -43,10 +45,12 @@ export class LoginComponent implements OnInit {
     var password = ( < HTMLInputElement > document.getElementById("password")).value;
 
     //Email Validations
+    //If email is null 
     if (email == "") {
       document.getElementById("loginEmailError").innerHTML = "Email cannot be empty";
       return false;
     }
+    //If email is not in proper format
     if (!email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
       document.getElementById("loginEmailError").innerHTML = "Invalid Email";
       return false;
@@ -54,6 +58,7 @@ export class LoginComponent implements OnInit {
     document.getElementById("loginEmailError").innerHTML = "";
 
     //Password Validations
+    //Password should not be empty
     if (password == "") {
       document.getElementById("loginPasswordError").innerHTML = "Password cannot be empty";
       return false;
@@ -73,7 +78,6 @@ export class LoginComponent implements OnInit {
       err => {
         if (err instanceof HttpErrorResponse) {
           // Handle error
-          //console.log("Status: "+ err.status +", Message: " + err.message);
           if (err.status === 401) {
             document.getElementById("loginPasswordError").innerHTML = "Invalid Username/Password";
             return false;
@@ -138,7 +142,6 @@ export class LoginComponent implements OnInit {
     }
     document.getElementById("passwordError").innerHTML = "";
 
-
     this.user.name = name;
     this.user.email = email;
     this.user.password = password;
@@ -147,7 +150,6 @@ export class LoginComponent implements OnInit {
         document.getElementById("signUpSuccess").innerHTML = res.message;
       },
       err => {
-        console.log(err);
         if (err instanceof HttpErrorResponse) {
           // Handle error
           if (err.error.message === "User already exists") {
@@ -156,10 +158,6 @@ export class LoginComponent implements OnInit {
         }
       });
   }
-
-
-
-
 
   ngOnInit(): void {
     this.checkStatus();

@@ -1,7 +1,4 @@
-import {
-  Product
-} from '././product';
-
+//ProductResponse interface
 export interface productResponse {
   id: string;
   categoryId: string;
@@ -11,15 +8,8 @@ export interface productResponse {
   price: Float32Array;
 }
 
+//Response should return message which contains array of productResponse
 export interface Response {
   message: productResponse[];
 }
 
-export interface responseById {
-  id: string;
-  categoryId: string;
-  productName: string;
-  images: string;
-  description: string;
-  price: Float32Array;
-}

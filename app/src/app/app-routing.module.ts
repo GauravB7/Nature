@@ -1,3 +1,4 @@
+//import all dependencies
 import {
   NgModule
 } from '@angular/core';
@@ -30,8 +31,7 @@ import {
   ProductsByCategoryComponent
 } from './products-by-category/products-by-category.component';
 
-
-
+//define all routes
 const routes: Routes = [{
     path: 'home',
     component: MainComponent,

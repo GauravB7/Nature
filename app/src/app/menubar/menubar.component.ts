@@ -15,24 +15,29 @@ import {
   styleUrls: ['./menubar.component.scss']
 })
 
-
 export class MenubarComponent implements OnInit {
 
-  constructor(private categoryService: CategoryService) {}
+  constructor(private categoryService: CategoryService) {} //create object for Category Service
 
-  categories: Category[];
+  categories: Category[]; //Array of Category objects
 
+  //Get all Product Categories
   getCategories(): void {
+    //Subscribe to function of category Service and load all categories
     this.categoryService.getProductCategories().subscribe((res) => {
-      this.categories = res.message.map((res) => ({
-        id: res.id,
-        name: res.name
-      }));
+        this.categories = res.message.map((res) => ({
+          id: res.id,
+          name: res.name
+        }));
 
-    })
+      },
+      (err) => {
+        console.log(err);
+      })
   }
 
   ngOnInit(): void {
+    //On component load, call getCategories function
     this.getCategories();
   }
 

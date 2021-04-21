@@ -35,17 +35,13 @@ export class ProductDetailsComponent implements OnInit {
     private productService: ProductService,
     private location: Location,
     private router:Router,
-    private userService:UserService) {}
+    private userService:UserService) {} //Create the objects for the dependencies
 
-  checkStatus() {
-      if (this.userService.isLoggedOut()) {
-        this.router.navigate(['login']);
-      }
-  }
-
+  //Method to get the required product
   getProduct(): void {
-    const id = this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id'); //extract product id from the url
     this.productService.getProduct(id).subscribe(prod => {
+      //upon success, store the product
       this.products = prod.message.map((prod) => ({
         id: prod.id,
         categoryId: prod.categoryId,
@@ -54,18 +50,22 @@ export class ProductDetailsComponent implements OnInit {
         description: prod.description,
         price: prod.price
       }))
-      this.product = this.products[0];
+      this.product = this.products[0]; //extract product from array
       this.position=this.product.description.split("Position :")[1];
       this.product.description=this.product.description.split("Position :")[0];
+    },
+    //if any error occurs, navigate to login page
+    (err) =>{
+      this.router.navigate(['login']);
     })
   }
 
+  //If user opts to buy product
   buyProduct(purchasedProduct:Product):void{
-    alert("Order Placed Successfully");
+    alert("Your request for "+purchasedProduct.productName+" is registered successfully.");
   }
 
   ngOnInit(): void {
-    this.checkStatus();
     this.getProduct();
   }
 

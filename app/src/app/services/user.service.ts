@@ -29,16 +29,10 @@ export class UserService {
     password: ''
   };
 
-  url = 'http://localhost:8081/user/';
+  url = 'http://localhost:8081/user/'; //Backend Url to send the request on
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-type': 'application/json'
-    })
-  };
-
-
-  signUp(user: User) {
+  //Observable to create a user 
+  signUp(user: User):Observable<any> {
     const headers = {
       'content-type': 'application/json'
     };
@@ -47,6 +41,7 @@ export class UserService {
     });
   }
 
+  //Observable for login 
   login(email, password): Observable < any > {
     const headers = {
       'content-type': 'application/json'
@@ -61,27 +56,32 @@ export class UserService {
     });
   }
 
+  //Function to set parameters
   setLocalStorage(responseObj) {
     const expiresAt = moment().add(responseObj.expiresIn);
     localStorage.setItem('id_token', responseObj.token);
     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
   }
 
+  //Logout function to remove items from localStorage
   logout() {
     localStorage.removeItem("id_token");
     localStorage.removeItem("expires_at");
     this.router.navigate(['']);
   }
 
+  //Function to check if user is logged in or not
   public isLoggedIn() {
     return moment().isAfter(this.getExpiration());
 
   }
 
+  //Function to check if user is logged out or not
   isLoggedOut() {
     return !this.isLoggedIn();
   }
 
+  //Function to check the status of token
   getExpiration() {
     const expiration = localStorage.getItem("expires_at");
     const expiresAt = JSON.parse(expiration);

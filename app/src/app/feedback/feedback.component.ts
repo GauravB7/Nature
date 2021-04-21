@@ -17,6 +17,7 @@ export class FeedbackComponent implements OnInit {
 
   constructor() {}
 
+  //Binding with Html of the feedback Component
   feedbackForm = new FormGroup({
     userName: new FormControl("", [Validators.required, Validators.pattern("^[a-zA-Z\s]+$")]),
     userEmail: new FormControl("", [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]),

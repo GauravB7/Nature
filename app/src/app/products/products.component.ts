@@ -9,9 +9,6 @@ import {
   ProductService
 } from '../services/product.service';
 import {
-  UserService
-} from '../services/user.service';
-import {
   Router
 } from '@angular/router';
 
@@ -22,20 +19,15 @@ import {
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private productService: ProductService,private userService:UserService,private router:Router) {}
+  constructor(private productService: ProductService, private router: Router) {}
 
-  checkStatus(){
-    if(this.userService.isLoggedOut()){
-      this.router.navigate(['login']);
-    }
-  }
+  products: Product[]; //create array of product objects to store the products
 
-  products: Product[];
-
+  //function to get all available products and store in products array
   getProducts(): void {
     this.productService.getProducts().subscribe((prod) => {
-      console.log(prod);
       this.products = prod.message.map((prod) => ({
+          //if success, map the res in appropriate format
           id: prod.id,
           categoryId: prod.categoryId,
           productName: prod.productName,
@@ -43,15 +35,17 @@ export class ProductsComponent implements OnInit {
           description: prod.description,
           price: prod.price
         })
-
       );
-
+    },
+    //if error, navigate to login component
+    (err) =>{
+      this.router.navigate(['login']);
     });
 
   }
 
   ngOnInit(): void {
-    this.checkStatus();
+    //On component load, call getProducts method
     this.getProducts();
   }
 

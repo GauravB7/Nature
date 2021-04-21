@@ -1,3 +1,4 @@
+//Product Interface
 export interface Product {
   id: string;
   categoryId: string;
