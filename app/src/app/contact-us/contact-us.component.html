@@ -26,12 +26,6 @@
 
       <div class="form-group">
         <p>
-          <label for="cust_name">Phone:</label>
-          <input type="text" id="customerNumber"></p>
-      </div>
-
-      <div class="form-group">
-        <p>
           <label for="cust_message" class="query">Query:</label><br />
           <textarea rows="4" id="customerNote" name="customerNote" formControlName="comment" required></textarea></p>
         <div *ngIf="contactForm.controls['comment'].invalid && contactForm.controls['comment'].touched" class="alert">

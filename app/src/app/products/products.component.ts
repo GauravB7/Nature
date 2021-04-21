@@ -8,6 +8,12 @@ import {
 import {
   ProductService
 } from '../services/product.service';
+import {
+  UserService
+} from '../services/user.service';
+import {
+  Router
+} from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -16,7 +22,13 @@ import {
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService,private userService:UserService,private router:Router) {}
+
+  checkStatus(){
+    if(this.userService.isLoggedOut()){
+      this.router.navigate(['login']);
+    }
+  }
 
   products: Product[];
 
@@ -39,6 +51,7 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.checkStatus();
     this.getProducts();
   }
 

@@ -5,6 +5,8 @@ import {ActivatedRoute} from '@angular/router';
 import {ProductService} from '../services/product.service';
 import {CategoryService} from '../services/category.service';
 import { Location } from '@angular/common';
+import {Router} from '@angular/router';
+import {UserService} from '../services/user.service';
 
 
 @Component({
@@ -20,7 +22,15 @@ export class ProductsByCategoryComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private productService: ProductService,
     private categoryService: CategoryService,
-    private location: Location) {}
+    private location: Location,
+    private router:Router,
+    private userService:UserService) {}
+
+  checkStatus() {
+      if (this.userService.isLoggedOut()) {
+        this.router.navigate(['login']);
+      }
+  }
 
   getCategory(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -45,6 +55,7 @@ export class ProductsByCategoryComponent implements OnInit {
 } 
 
   ngOnInit(): void {
+    this.checkStatus();
     this.getCategory();
     this.getProductsByCategory();
   }

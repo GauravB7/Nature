@@ -14,6 +14,8 @@ import {
   templateUrl: './menubar.component.html',
   styleUrls: ['./menubar.component.scss']
 })
+
+
 export class MenubarComponent implements OnInit {
 
   constructor(private categoryService: CategoryService) {}
@@ -29,7 +31,6 @@ export class MenubarComponent implements OnInit {
 
     })
   }
-
 
   ngOnInit(): void {
     this.getCategories();

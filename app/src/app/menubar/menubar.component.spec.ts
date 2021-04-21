@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {HttpClientModule} from '@angular/common/http';
 import { MenubarComponent } from './menubar.component';
 
 describe('MenubarComponent', () => {
@@ -8,7 +8,10 @@ describe('MenubarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MenubarComponent ]
+      declarations: [ MenubarComponent ],
+      imports:[
+        HttpClientModule
+      ]
     })
     .compileComponents();
   }));

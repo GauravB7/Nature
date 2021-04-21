@@ -1092,88 +1092,8 @@ div.loginBlock {
   color: red;
 }
 
-div.contactUsBlock {
-  float: left;
-  width: 78%;
-  height: auto;
-  margin: 0;
-}
-
-.contactUsBlock h2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.contactUsBlock h3 {
-  font-family: Times new roman;
-  font-size: 1.5em;
-  background-color: #202020;
-  color: #8BC34A;
-  font-weight: bold;
-  padding: 10px;
-  text-align: center;
-  margin: 5px 10px 10px 5px;
-}
-
-.contactUsBlock [type=text] {
-  width: 100%;
-  height: 40px;
-  background-color: #dddddd;
-  border: 1px ridge #bbbbbb;
-  opacity: 0.5;
-}
-
-.contactUsBlock textarea {
-  width: 100%;
-  height: 60px;
-  background-color: #dddddd;
-  border: 1px ridge #bbbbbb;
-  opacity: 0.5;
-}
-
-.contactUsForm [type=submit] {
-  border: 1px ridge #808080;
-  padding: 10px 30px;
-  background-color: #8BC34A;
-  text-align: center;
-  border-radius: 4px;
-}
-
-.contactUsForm label {
-  display: inline-block;
-  width: 70px;
-}
-
-.contactUsForm a {
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-}
-
-.contactUsForm {
-  width: 45%;
-  height: auto;
-  float: left;
-  border: 2px solid Green;
-  margin: 2%;
-  
-}
-
-.contactUsForm h2 {
-  margin: 0px;
-  background-color: #202020;
-  padding: 10px 10px;
-  color: #8BC34A;
-  font-weight: normal;
-}
-
-.contactUsForm p {
-  padding: 10px 80px 10px 40px;
-}
-
+/* ------------feedback---------*/
+    
 .feedbackBlock h3 {
   font-family: Times new roman;
   font-size: 1.5em;
@@ -1210,11 +1130,12 @@ div.feedbackBlock {
 
 .feedbackForm [type=submit] {
   border: 1px ridge #808080;
-  padding: 10px 50px;
+  padding: 10px 30px;
   background-color: #8BC34A;
+  margin: 20px;
+  margin-left: 35px;
   text-align: center;
   border-radius: 4px;
-  margin-bottom: 20px;
 }
 
 .feedbackForm label {
@@ -1224,19 +1145,14 @@ div.feedbackBlock {
 
 .feedbackForm a {
   text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
 }
 
 .feedbackForm {
-  width: 60%;
+  width: 80%;
   height: auto;
-  float: left;
-  border: 2px solid Green;
-  margin: 10px;
-  margin-left: 290px;
+  float: center;
+  border: 2px solid rgb(105, 134, 105);
+  margin-left: 10%;
 }
 
 .feedbackForm h2 {
@@ -1249,6 +1165,103 @@ div.feedbackBlock {
 
 .feedbackForm p {
   padding: 10px 80px 10px 40px;
+}
+
+
+input:required:focus {
+  border: 1px solid green;
+  outline: green;
+}
+
+input:required:hover {
+  opacity: 1;
+}
+/* ------------Contact Us---------*/
+
+div.contactUsBlock {
+  float: left;
+  width: 78%;
+  height: auto;
+  margin: 0;
+}
+
+.contactUsBlock h3 {
+  font-family: Times new roman;
+  font-size: 1.5em;
+  background-color: #202020;
+  color: #8BC34A;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+  margin: 5px 10px 10px 5px;
+}
+
+.contactUsBlock [type=text] {
+  width: 100%;
+  height: 40px;
+  background-color: #dddddd;
+  border: 1px ridge #bbbbbb;
+  opacity: 0.5;
+}
+
+.contactUsBlock textarea {
+  width: 100%;
+  height: 60px;
+  background-color: #dddddd;
+  border: 1px ridge #bbbbbb;
+  opacity: 0.5;
+}
+
+.contactUsForm [type=submit] {
+  border: 1px ridge #808080;
+  padding: 10px 30px;
+  background-color: #8BC34A;
+  margin: 20px;
+  margin-left: 35px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.contactUsForm label {
+  display: inline-block;
+  width: 70px;
+}
+
+.contactUsForm a {
+  text-decoration: none;
+}
+
+.contactUsForm {
+  width: 80%;
+  height: auto;
+  float: center;
+  border: 2px solid rgb(105, 134, 105);
+  margin-left: 10%;
+}
+
+.contactUsForm h2 {
+  margin: 0px;
+  background-color: #202020;
+  padding: 10px 10px;
+  color: #8BC34A;
+  font-weight: normal;
+}
+
+.contactUsForm p {
+  padding: 10px 80px 10px 40px;
+}
+
+.formSubmit,.feedbackSubmit{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*---------Validation--------*/
+    
+.alert {
+  color: red;
+  margin-left: 50px;
 }
 
 

@@ -29,13 +29,15 @@ export class LoginComponent implements OnInit {
   };
   constructor(private userService: UserService, private router: Router) {}
 
+  //Check if user is already logged in or not
   checkStatus() {
     if (localStorage.getItem('id_token')) {
       this.router.navigate(['']);
     }
   }
 
-
+  //If user requests for login, Validate the request
+  //If valid data, send login request
   login() {
     var email = ( < HTMLInputElement > document.getElementById("email")).value;
     var password = ( < HTMLInputElement > document.getElementById("password")).value;
@@ -91,39 +93,47 @@ export class LoginComponent implements OnInit {
     var name = ( < HTMLInputElement > document.getElementById("userName")).value;
     var email = ( < HTMLInputElement > document.getElementById("userEmail")).value;
     var password = ( < HTMLInputElement > document.getElementById("userPassword")).value;
+    var validationError=0;
 
     //Name Validations
     if (name == "") {
       document.getElementById("nameError").innerHTML = "Name cannot be empty";
-
-      return false;
+      validationError=1;
     }
-    if (!name.match(/[A-za-z]+$/)) {
+    if (!name.match(/[A-za-z]+$/) && name != "") {
       document.getElementById("nameError").innerHTML = "Name should consists of only characters";
-      return false;
+      validationError=1;
     }
-    document.getElementById("nameError").innerHTML = "";
+    if(validationError==0){
+      document.getElementById("nameError").innerHTML = "";
+    }
 
     //Email Validations
     if (email == "") {
       document.getElementById("emailError").innerHTML = "Email cannot be empty";
-      return false;
+      validationError=1;
     }
-    if (!email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
+    if (!email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/) && email !="") {
       document.getElementById("emailError").innerHTML = "Invalid Email";
-      return false;
+      validationError=1;
     }
-    document.getElementById("emailError").innerHTML = "";
+    if(validationError==0){
+      document.getElementById("emailError").innerHTML = "";
+    }
+    
 
     //Password Validations
     if (password == "") {
       document.getElementById("passwordError").innerHTML = "Password cannot be empty";
-      return false;
+      validationError=1;
     }
     var patt = /[A-Z]{1,}[a-z]{1,}[$,#,@][0-9]/g
-    if (!password.match(patt)) {
+    if (!password.match(patt) && password != "") {
       var msg = "Password should contain atleast one capital letter followed by atleast one small letter followed by special character and digits";
       document.getElementById("passwordError").innerHTML = msg;
+      validationError=1;
+    }
+    if(validationError==1){
       return false;
     }
     document.getElementById("passwordError").innerHTML = "";
