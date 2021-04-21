@@ -5,7 +5,7 @@ export interface productResponse {
   productName: string;
   images: string;
   description: string;
-  price: Float32Array;
+  price: string;
 }
 
 //Response should return message which contains array of productResponse

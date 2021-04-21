@@ -5,5 +5,5 @@ export interface Product {
   productName: string;
   images: string;
   description: string;
-  price: Float32Array;
+  price: string;
 }
